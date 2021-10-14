@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "59d49329-ae72-4225-9a47-80f2f60a7735",
+		"name": "LINENotify",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authorize",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=2Spijczih60ywM9r1gubdF&redirect_uri=https://crm-dev.clicknext.com/&scope=notify&state=1111",
+					"protocol": "https",
+					"host": [
+						"notify-bot",
+						"line",
+						"me"
+					],
+					"path": [
+						"oauth",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": "2Spijczih60ywM9r1gubdF"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://crm-dev.clicknext.com/"
+						},
+						{
+							"key": "scope",
+							"value": "notify"
+						},
+						{
+							"key": "state",
+							"value": "1111"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "https://crm-dev.clicknext.com/",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "2Spijczih60ywM9r1gubdF",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "qneNRkFbVF8vyqLnVCbCxekLSUF3bUs2BjY6nW9PaoP",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://notify-bot.line.me/oauth/token",
+					"protocol": "https",
+					"host": [
+						"notify-bot",
+						"line",
+						"me"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "notify",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 90bClGl2SjvKqFX8nOCvYdaIVgqgoj4Ea4YEADLte1q",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "message",
+							"value": "TEST TTTsss",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://notify-api.line.me/api/notify",
+					"protocol": "https",
+					"host": [
+						"notify-api",
+						"line",
+						"me"
+					],
+					"path": [
+						"api",
+						"notify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer XYZtvIBdmzlghRYZq4xTxSVcRqF857lQniAYmav8bte",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://notify-api.line.me/api/status",
+					"protocol": "https",
+					"host": [
+						"notify-api",
+						"line",
+						"me"
+					],
+					"path": [
+						"api",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "revoke",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer BqxJcaVw7c1DnVqiIvaJsyM7Z07PMahDr7PnbADY7J7",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://notify-api.line.me/api/revoke",
+					"protocol": "https",
+					"host": [
+						"notify-api",
+						"line",
+						"me"
+					],
+					"path": [
+						"api",
+						"revoke"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

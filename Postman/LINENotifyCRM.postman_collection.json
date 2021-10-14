@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "42d4b431-4c9f-46e0-967b-47a0e6994f94",
+		"name": "LINENotifyCRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "authorize",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:6666/api/LineNotifyService/OAuthLineNotifyUrl?redirect_uri=https://crm-dev.clicknext.com/&user_id=200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6666",
+					"path": [
+						"api",
+						"LineNotifyService",
+						"OAuthLineNotifyUrl"
+					],
+					"query": [
+						{
+							"key": "redirect_uri",
+							"value": "https://crm-dev.clicknext.com/"
+						},
+						{
+							"key": "user_id",
+							"value": "200"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"200\",\r\n    \"redirect_uri\": \"https://crm-dev.clicknext.com/\",\r\n    \"code\": \"H9CQ29s4ERnLY7haJm9kKx\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6666/api/LineNotifyService/OAuthExchangeCode",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6666",
+					"path": [
+						"api",
+						"LineNotifyService",
+						"OAuthExchangeCode"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "notify",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"200\",\r\n    \"message\": \"TESTTTT\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6666/api/LineNotifyService/SendNotify",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6666",
+					"path": [
+						"api",
+						"LineNotifyService",
+						"SendNotify"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6666/api/LineNotifyService/CheckStatus?user_id=200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6666",
+					"path": [
+						"api",
+						"LineNotifyService",
+						"CheckStatus"
+					],
+					"query": [
+						{
+							"key": "user_id",
+							"value": "200"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "revoke",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": \"200\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:6666/api/LineNotifyService/RevokeToken",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "6666",
+					"path": [
+						"api",
+						"LineNotifyService",
+						"RevokeToken"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
